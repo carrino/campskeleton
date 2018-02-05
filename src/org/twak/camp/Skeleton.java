@@ -437,6 +437,7 @@ public class Skeleton
         // if we are not adding new events (and this isn't adding the input the first time)
         // this shouldn't do anything
         context.processHoriz( this );
+        refindFaceEvents = false;
     }
 
     /**
