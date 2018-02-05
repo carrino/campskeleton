@@ -170,7 +170,7 @@ public class PanMouseAdaptor extends MouseAdapter implements Cloneable {
 
 	public void setZoom( int direction ) {
 		zoomInt += direction;
-		zoomInt = Mathz.clamp( zoomInt, -100, 100 );
+//		zoomInt = Mathz.clamp( zoomInt, -100, 100 );
 		zoom = zoomIntToZoom( zoomInt );
 		comp.repaint();
 		fireListeners();
@@ -183,7 +183,7 @@ public class PanMouseAdaptor extends MouseAdapter implements Cloneable {
 	}
 	
 	private static int zoomToZoomInt (double zI) {
-		return (int) (Math.log( zI ) * 4 );
+		return (int) -(Math.log(zI) * 4 );
 	}
 
 	public double getZoom() {
@@ -328,14 +328,8 @@ public class PanMouseAdaptor extends MouseAdapter implements Cloneable {
 	}
 
 	public void zoomFromWidth( double width ) {
-		
-		int cw = comp.getWidth();
-		
-		if (cw == 0)
-			return;
-		
-		zoom = toZoomD( width ) /  cw;
-		zoomInt = zoomToZoomInt( zoom );
-		setZoom( 0 );
+		zoomInt = zoomToZoomInt(width);
+		zoomInt += 20;
+		setZoom(0);
 	}
 }

@@ -41,15 +41,15 @@ public class CampSkeleton extends javax.swing.JFrame {
      *
      */
 
+    public final PointEditor pe;
+
     /** Creates new form Main */
     public CampSkeleton() {
         initComponents();
 
-        PointEditor pe;
-        
 //        pe = new MedialPointEditor();
-        pe = new WeightedPointEditor();
-//        pe = new SkeletonPointEditor();
+//        pe = new WeightedPointEditor();
+        pe = new SkeletonPointEditor();
 //        pe = new PartialOffsetPointEditor();
 //        pe = new OffsetPointEditor();
         setContentPane(pe);

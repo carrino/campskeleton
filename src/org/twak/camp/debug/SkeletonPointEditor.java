@@ -38,7 +38,7 @@ import org.twak.utils.collections.Loopable;
 public class SkeletonPointEditor extends PointEditor
 {
 
-    boolean changed = true;
+    public boolean changed = true;
     
     public SkeletonPointEditor()
     {
@@ -68,7 +68,7 @@ public class SkeletonPointEditor extends PointEditor
         super.addBetween( ctx, l );
     }
     boolean busy = false;
-    Output output;
+    public Output output;
 
     public void paintPointEditor( Graphics2D g2 )
     {
@@ -147,7 +147,9 @@ public class SkeletonPointEditor extends PointEditor
                         DebugDevice.reset();
                         Skeleton skeleton = new Skeleton( out, true );
                         skeleton.skeleton();
-                        SkeletonPointEditor.this.output = skeleton.output;
+//                        if (output == null) {
+                            SkeletonPointEditor.this.output = skeleton.output;
+//                        }
                     }
                     finally
                     {

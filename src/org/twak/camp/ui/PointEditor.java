@@ -98,6 +98,53 @@ public class PointEditor extends JComponent
             loop.append( new Bar( pair.first(), pair.second() ) );
         }
 
+//        for (Pair<Point2d, Point2d> pair : new ConsecutivePairs<Point2d>(Arrays.asList(
+//            new Point2d(.001, .001),
+//            new Point2d(-.001, .001),
+//            new Point2d(-.001, -.001),
+//            new Point2d(.001, -.001)
+//
+////            new Point2d(-0.54, 0.29),
+////            new Point2d(-0.54, 0.28),
+////            new Point2d(-0.55, 0.28),
+////            new Point2d(-0.55, 0.29)
+////            new Point2d(-116.55, 35.29),
+////            new Point2d(-116.55, -35.28),
+////            new Point2d(116.54, -35.28),
+////            new Point2d(116.54, 35.29)
+//                ), true ))
+//        {
+//            loop.append( new Bar( pair.first(), pair.second() ) );
+//        }
+
+        // add hole (clockwise)
+        loop = new Loop();
+        edges.add( loop );
+        for ( Pair<Point2d, Point2d> pair : new ConsecutivePairs<Point2d>( Arrays.asList(
+            new Point2d (305,305),
+            new Point2d (305,295),
+            new Point2d (300,300),
+            new Point2d (295,295),
+            new Point2d (295,305)
+                ), true ))
+        {
+            loop.append( new Bar( pair.first(), pair.second() ) );
+        }
+
+        // add hole 2 (clockwise)
+        loop = new Loop();
+        edges.add( loop );
+        for ( Pair<Point2d, Point2d> pair : new ConsecutivePairs<Point2d>( Arrays.asList(
+            new Point2d (205,305),
+            new Point2d (205,295),
+            new Point2d (200,300),
+            new Point2d (195,295),
+            new Point2d (195,305)
+                ), true ))
+        {
+            loop.append( new Bar( pair.first(), pair.second() ) );
+        }
+
 // F-shape
 //        for ( Pair<Point2d, Point2d> pair : new ConsecutivePairs<Point2d>( Arrays.asList(
 //            new Point2d (250,100),
@@ -118,7 +165,7 @@ public class PointEditor extends JComponent
 //        }
     }
 
-    private void viewCenter()
+    public void viewCenter()
     {
         Point2d mean = new Point2d();
         int count = 0;
@@ -140,8 +187,8 @@ public class PointEditor extends JComponent
 
         if (count > 0) {
         	mean.scale( 1/(double)count );
+        	ma.zoomFromWidth( maxX-minX );
         	centerView( new Point( (int) mean.x, (int) mean.y ) );
-//        	ma.zoomFromWidth( maxX-minX );
         }
         
     }
