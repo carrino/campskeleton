@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// publishing information
+// -----------------------------------------------------------------------------
+ext.publishing.artifactId =  project.name.toLowerCase()
+ext.publishing.groupId    =  'twak'
+ext.publishing.versionId  =  '0.1.0'
+
+ext.publishing.developerName         = 'tom kelly'
+ext.publishing.developerAlias        = 'twak'
+ext.publishing.developerEmail        = 'twak@twak.org'
+ext.publishing.inceptionYear         = '2017'
+
+ext.publishing.bintray.repo          = 'campskeleton'
+ext.publishing.bintray.userOrg       = 'twak'
+ext.publishing.bintray.name          = project.name
+
+ext.publishing.desc                  = 'weighted straight skeleton java implementation'
+ext.publishing.labels                = ['skeleton', 'straigt skeleton']
+ext.publishing.license               = 'Apache 2.0'
+ext.publishing.licenseUrl            = 'https://github.com/twak/campskeleton/blob/master/LICENSE.md'
+ext.publishing.websiteUrl            = 'https://github.com/twak/campskeleton'
+ext.publishing.issueTrackerUrl       = 'https://github.com/twak/campskeleton/issues'
+ext.publishing.vcsUrl                = 'https://github.com/twak/campskeleton.git'
+
+ext.publishing.pomName               =  ext.publishing.artifactId
