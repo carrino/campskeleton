@@ -148,6 +148,9 @@ public class CollisionQ
     
     public void addCorner( Corner toAdd, HeightCollision postProcess, boolean useCache )
     {
+        if (Thread.currentThread().isInterrupted()) {
+            throw new RuntimeException(new InterruptedException("interrupted"));
+        }
         // check these two edges don't share the same face
         if ( toAdd.prevL.sameDirectedLine( toAdd.nextL ) )
         {
